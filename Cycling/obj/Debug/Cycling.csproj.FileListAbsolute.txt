@@ -1,0 +1,9 @@
+c:\users\omobo\documents\visual studio 2015\Projects\Cycling\Cycling\bin\Debug\Cycling.exe.config
+c:\users\omobo\documents\visual studio 2015\Projects\Cycling\Cycling\bin\Debug\Cycling.exe
+c:\users\omobo\documents\visual studio 2015\Projects\Cycling\Cycling\bin\Debug\Cycling.pdb
+c:\users\omobo\documents\visual studio 2015\Projects\Cycling\Cycling\obj\Debug\Cycling.csprojResolveAssemblyReference.cache
+c:\users\omobo\documents\visual studio 2015\Projects\Cycling\Cycling\obj\Debug\Cycling.Form1.resources
+c:\users\omobo\documents\visual studio 2015\Projects\Cycling\Cycling\obj\Debug\Cycling.Properties.Resources.resources
+c:\users\omobo\documents\visual studio 2015\Projects\Cycling\Cycling\obj\Debug\Cycling.csproj.GenerateResource.Cache
+c:\users\omobo\documents\visual studio 2015\Projects\Cycling\Cycling\obj\Debug\Cycling.exe
+c:\users\omobo\documents\visual studio 2015\Projects\Cycling\Cycling\obj\Debug\Cycling.pdb
