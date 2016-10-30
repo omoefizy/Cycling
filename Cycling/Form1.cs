@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data;
 using System.Collections.Generic;
+using System.Linq;
+
 namespace Cycling
 {
     public partial class Form1 : Form
@@ -34,8 +36,8 @@ namespace Cycling
 
         }
 
+       
 
-        
         public void readDisplayParams(string[] data)
         {
             for (int i = 0; i < data.Length; i++)
@@ -207,55 +209,46 @@ namespace Cycling
         }
         public void displaySummary()
         {
-            int Ms = dataGridView1.Rows.Cast<DataGridViewRow>()
-               .Max(x => Convert.ToInt32(x.Cells[1].Value));
-            Maxspeed.Text = Ms.ToString();
+            Maxspeed.Text = dataGridView1.Rows.Cast<DataGridViewRow>()
+           .AsEnumerable().Max(x => Convert.ToInt32(x.Cells[1].Value)).ToString();
 
+            Avgspeed.Text = dataGridView1.Rows.Cast<DataGridViewRow>()
+           .AsEnumerable().Average(x => Convert.ToInt32(x.Cells[1].Value)).ToString();
 
-            int As = dataGridView1.Rows.Cast<DataGridViewRow>()
-                .Average(x => Convert.ToInt32(x.Cells[1].Value));
-            Avgspeed.Text = As.ToString();
+            MaxHR.Text = dataGridView1.Rows.Cast<DataGridViewRow>()
+            .AsEnumerable().Max(x => Convert.ToInt32(x.Cells[0].Value)).ToString();
 
+            AvgHR.Text = dataGridView1.Rows.Cast<DataGridViewRow>()
+            .AsEnumerable().Average(x => Convert.ToInt32(x.Cells[0].Value)).ToString();
 
-            int Mah = dataGridView1.Rows.Cast<DataGridViewRow>()
-               .Max(x => Convert.ToInt32(x.Cells[0].Value));
-            MaxHR.Text = Mah.ToString();
+            MinHR.Text = dataGridView1.Rows.Cast<DataGridViewRow>()
+           .AsEnumerable().Min(x => Convert.ToInt32(x.Cells[0].Value)).ToString();
 
+            Maxpower.Text = dataGridView1.Rows.Cast<DataGridViewRow>()
+           .AsEnumerable().Max(x => Convert.ToInt32(x.Cells[4].Value)).ToString();
 
-            int Ah = dataGridView1.Rows.Cast<DataGridViewRow>()
-                .Average(x => Convert.ToInt32(x.Cells[0].Value));
-            AvgHR.Text = Ah.ToString();
+            Avgpower.Text = dataGridView1.Rows.Cast<DataGridViewRow>()
+            .AsEnumerable().Average(x => Convert.ToInt32(x.Cells[4].Value)).ToString();
 
+            Maxalt.Text = dataGridView1.Rows.Cast<DataGridViewRow>()
+            .AsEnumerable().Max(x => Convert.ToInt32(x.Cells[3].Value)).ToString();
 
-            int Mh = dataGridView1.Rows.Cast<DataGridViewRow>()
-                .Min(x => Convert.ToInt32(x.Cells[0].Value));
-            MinHR.Text = Mh.ToString();
+            Avgalt.Text = dataGridView1.Rows.Cast<DataGridViewRow>()
+           .AsEnumerable().Average(x => Convert.ToInt32(x.Cells[3].Value)).ToString();
 
+            string l = dataGridView1.Rows.Cast<DataGridViewRow>()
+            .AsEnumerable().Sum(x => Convert.ToInt32(x.Cells[1].Value)).ToString();
 
-            int Mp = dataGridView1.Rows.Cast<DataGridViewRow>()
-               .Max(x => Convert.ToInt32(x.Cells[4].Value));
-            Maxpower.Text = Mp.ToString();
-
-
-            int Ap = dataGridView1.Rows.Cast<DataGridViewRow>()
-                .Average(x => Convert.ToInt32(x.Cells[4].Value));
-            Avgpower.Text = Ap.ToString();
-
-
-            int Ma = dataGridView1.Rows.Cast<DataGridViewRow>()
-               .Max(x => Convert.ToInt32(x.Cells[3].Value));
-            Maxalt.Text = Ma.ToString();
-
-
-            int Aa = dataGridView1.Rows.Cast<DataGridViewRow>()
-                .Average(x => Convert.ToInt32(x.Cells[3].Value));
-            Avgalt.Text = Aa.ToString();
-
-
+            /*int td = 0;
+             for (int h = 0; h < dataGridView1.RowCount; h++)
+             {
+                 string l = dataGridView1.Rows[h].Cells[1].Value.ToString();
+                 int distance = (int.Parse(l)) / 3600;
+                 td += distance;
+             }*/
+            TotDC.Text = l;
             DataTable osi;
             osi = Dataset.Tables[T];
-
-
 
         }
     }
