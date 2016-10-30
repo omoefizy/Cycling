@@ -3,12 +3,11 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data;
 using System.Collections.Generic;
-
 namespace Cycling
 {
     public partial class Form1 : Form
     {
-        DataSet table = new DataSet();
+        
         string T = "CData";
         string hrData = "[HRData]";
         string Params = "[Params]";
@@ -16,21 +15,23 @@ namespace Cycling
         string heading = "";
         List<HrData> Hrdata = new List<HrData>();
         HrData newdata;
+        DataSet osi = new DataSet();
 
         public Form1()
         {
             InitializeComponent();
-            table.Reset();
-            table.Tables.Add(T);
-            table.Tables[0].Columns.Add("Heart Rate");
-            table.Tables[0].Columns.Add("Speed");
-            table.Tables[0].Columns.Add("Cadence");
-            table.Tables[0].Columns.Add("Altitude");
-            table.Tables[0].Columns.Add("Power");
-            table.Tables[0].Columns.Add("PowerBalance");
+            osi.Reset();
+            osi.Tables.Add(T);
+            osi.Tables[0].Columns.Add("Heart Rate");
+            osi.Tables[0].Columns.Add("Speed");
+            osi.Tables[0].Columns.Add("Cadence");
+            osi.Tables[0].Columns.Add("Altitude");
+            osi.Tables[0].Columns.Add("Power");
+            osi.Tables[0].Columns.Add("PowerBalance");
 
 
-            this.dataGridView1.DataSource = table.Tables[T].DefaultView;
+            this.dataGridView1.DataSource = osi.Tables[T].DefaultView;
+
         }
 
 
@@ -125,7 +126,7 @@ namespace Cycling
                     if (data.Length > 0)
                     {
                         readData(data);
-                        table.Tables[T].Rows.Clear();
+                        osi.Tables[T].Rows.Clear();
                         displayData();
                         readDisplayParams(data);
                         //displaySummary();
@@ -138,12 +139,15 @@ namespace Cycling
                 }
             }
         }
+        
+
+
         public void displayData()
         {
             for (int i = 0; i < Hrdata.Count; i++)
             {
                 newdata = Hrdata[i];
-                table.Tables[T].Rows.Add(newdata.getHeartRate(), newdata.getSpeed(),
+                osi.Tables[T].Rows.Add(newdata.getHeartRate(), newdata.getSpeed(),
                         newdata.getCadence(), newdata.getAscent(), newdata.getPower(),
                         newdata.getPowerBal());
             }
@@ -151,53 +155,109 @@ namespace Cycling
 
         }
         public class HrData
+    {
+        int heartRate = 0;
+        int speed =0;
+        int cadence =0;
+        int alt =0;
+        int power =0;
+        int powerBal =0;
+
+        public void setEntry(int heartRate, int speed, int cadence, int altitude, int power, int powerBal)
         {
-            int heartRate = 0;
-            int speed = 0;
-            int cadence = 0;
-            int alt = 0;
-            int power = 0;
-            int powerBal = 0;
+            this.heartRate = heartRate;
+            this.speed = speed;
+            this.cadence = cadence;
+            this.alt = altitude;
+            this.power = power;
+            this.powerBal = powerBal;
+        }
 
-            public void setEntry(int heartRate, int speed, int cadence, int altitude, int power, int powerBal)
-            {
-                this.heartRate = heartRate;
-                this.speed = speed;
-                this.cadence = cadence;
-                this.alt = altitude;
-                this.power = power;
-                this.powerBal = powerBal;
-            }
+        public string getEntry()
+        {
+            string getData = getHeartRate() + ", " + getSpeed() + ", " + cadence + ", " + alt + ", " + power + ", " + powerBal + " ||";
+            return getData;
+        }
 
-            internal object getCadence()
-            {
-                throw new NotImplementedException();
-            }
 
-            internal DataRow getHeartRate()
-            {
-                throw new NotImplementedException();
-            }
+        public int getHeartRate()
+        {
+            return heartRate;
+        }
+        public int getSpeed()
+        {
+            return speed;
+        }
+        public int getCadence()
+        {
+            return cadence;
+        }
+        public int getAscent()
+        {
+            return alt;
+        }
+        public int getPower()
+        {
+            return power;
+        }
+        public int getPowerBal()
+        {
+            return powerBal;
+        }
+        }
+        public void displaySummary()
+        {
+            int Ms = dataGridView1.Rows.Cast<DataGridViewRow>()
+               .Max(x => Convert.ToInt32(x.Cells[1].Value));
+            Maxspeed.Text = Ms.ToString();
 
-            internal object getSpeed()
-            {
-                throw new NotImplementedException();
-            }
 
-            internal object getAscent()
-            {
-                throw new NotImplementedException();
-            }
+            int As = dataGridView1.Rows.Cast<DataGridViewRow>()
+                .Average(x => Convert.ToInt32(x.Cells[1].Value));
+            Avgspeed.Text = As.ToString();
 
-            internal object getPower()
-            {
-                throw new NotImplementedException();
-            }
 
-            internal object getPowerBal()
-            {
-                throw new NotImplementedException();
-            }
+            int Mah = dataGridView1.Rows.Cast<DataGridViewRow>()
+               .Max(x => Convert.ToInt32(x.Cells[0].Value));
+            MaxHR.Text = Mah.ToString();
+
+
+            int Ah = dataGridView1.Rows.Cast<DataGridViewRow>()
+                .Average(x => Convert.ToInt32(x.Cells[0].Value));
+            AvgHR.Text = Ah.ToString();
+
+
+            int Mh = dataGridView1.Rows.Cast<DataGridViewRow>()
+                .Min(x => Convert.ToInt32(x.Cells[0].Value));
+            MinHR.Text = Mh.ToString();
+
+
+            int Mp = dataGridView1.Rows.Cast<DataGridViewRow>()
+               .Max(x => Convert.ToInt32(x.Cells[4].Value));
+            Maxpower.Text = Mp.ToString();
+
+
+            int Ap = dataGridView1.Rows.Cast<DataGridViewRow>()
+                .Average(x => Convert.ToInt32(x.Cells[4].Value));
+            Avgpower.Text = Ap.ToString();
+
+
+            int Ma = dataGridView1.Rows.Cast<DataGridViewRow>()
+               .Max(x => Convert.ToInt32(x.Cells[3].Value));
+            Maxalt.Text = Ma.ToString();
+
+
+            int Aa = dataGridView1.Rows.Cast<DataGridViewRow>()
+                .Average(x => Convert.ToInt32(x.Cells[3].Value));
+            Avgalt.Text = Aa.ToString();
+
+
+            DataTable osi;
+            osi = Dataset.Tables[T];
+
+
+
         }
     }
+
 }

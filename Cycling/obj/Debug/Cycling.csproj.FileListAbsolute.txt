@@ -7,3 +7,12 @@ c:\users\omobo\documents\visual studio 2015\Projects\Cycling\Cycling\obj\Debug\C
 c:\users\omobo\documents\visual studio 2015\Projects\Cycling\Cycling\obj\Debug\Cycling.csproj.GenerateResource.Cache
 c:\users\omobo\documents\visual studio 2015\Projects\Cycling\Cycling\obj\Debug\Cycling.exe
 c:\users\omobo\documents\visual studio 2015\Projects\Cycling\Cycling\obj\Debug\Cycling.pdb
+C:\Users\OMOBO\Documents\Visual Studio 2015\Projects\Cycling\Assignment\Cycling\bin\Debug\Cycling.exe.config
+C:\Users\OMOBO\Documents\Visual Studio 2015\Projects\Cycling\Assignment\Cycling\obj\Debug\Cycling.exe
+C:\Users\OMOBO\Documents\Visual Studio 2015\Projects\Cycling\Assignment\Cycling\obj\Debug\Cycling.pdb
+C:\Users\OMOBO\Documents\Visual Studio 2015\Projects\Cycling\Assignment\Cycling\bin\Debug\Cycling.exe
+C:\Users\OMOBO\Documents\Visual Studio 2015\Projects\Cycling\Assignment\Cycling\bin\Debug\Cycling.pdb
+C:\Users\OMOBO\Documents\Visual Studio 2015\Projects\Cycling\Assignment\Cycling\obj\Debug\Cycling.csprojResolveAssemblyReference.cache
+C:\Users\OMOBO\Documents\Visual Studio 2015\Projects\Cycling\Assignment\Cycling\obj\Debug\Cycling.Form1.resources
+C:\Users\OMOBO\Documents\Visual Studio 2015\Projects\Cycling\Assignment\Cycling\obj\Debug\Cycling.Properties.Resources.resources
+C:\Users\OMOBO\Documents\Visual Studio 2015\Projects\Cycling\Assignment\Cycling\obj\Debug\Cycling.csproj.GenerateResource.Cache

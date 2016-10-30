@@ -55,16 +55,16 @@
             this.label20 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.Avgpower = new System.Windows.Forms.TextBox();
+            this.TotDC = new System.Windows.Forms.TextBox();
+            this.Maxalt = new System.Windows.Forms.TextBox();
+            this.Avgalt = new System.Windows.Forms.TextBox();
+            this.Maxspeed = new System.Windows.Forms.TextBox();
+            this.Avgspeed = new System.Windows.Forms.TextBox();
+            this.MaxHR = new System.Windows.Forms.TextBox();
+            this.AvgHR = new System.Windows.Forms.TextBox();
+            this.MinHR = new System.Windows.Forms.TextBox();
+            this.Maxpower = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -359,91 +359,91 @@
             this.radioButton2.Text = "Metres";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // Avgpower
             // 
-            this.textBox1.Location = new System.Drawing.Point(114, 160);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 26;
+            this.Avgpower.Location = new System.Drawing.Point(114, 160);
+            this.Avgpower.Name = "Avgpower";
+            this.Avgpower.Size = new System.Drawing.Size(100, 20);
+            this.Avgpower.TabIndex = 26;
             // 
-            // textBox2
+            // TotDC
             // 
-            this.textBox2.Location = new System.Drawing.Point(148, 466);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(66, 20);
-            this.textBox2.TabIndex = 27;
+            this.TotDC.Location = new System.Drawing.Point(148, 466);
+            this.TotDC.Name = "TotDC";
+            this.TotDC.Size = new System.Drawing.Size(66, 20);
+            this.TotDC.TabIndex = 27;
             // 
-            // textBox3
+            // Maxalt
             // 
-            this.textBox3.Location = new System.Drawing.Point(114, 433);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 28;
+            this.Maxalt.Location = new System.Drawing.Point(114, 433);
+            this.Maxalt.Name = "Maxalt";
+            this.Maxalt.Size = new System.Drawing.Size(100, 20);
+            this.Maxalt.TabIndex = 28;
             // 
-            // textBox4
+            // Avgalt
             // 
-            this.textBox4.Location = new System.Drawing.Point(114, 395);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 29;
+            this.Avgalt.Location = new System.Drawing.Point(114, 395);
+            this.Avgalt.Name = "Avgalt";
+            this.Avgalt.Size = new System.Drawing.Size(100, 20);
+            this.Avgalt.TabIndex = 29;
             // 
-            // textBox5
+            // Maxspeed
             // 
-            this.textBox5.Location = new System.Drawing.Point(114, 365);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 30;
+            this.Maxspeed.Location = new System.Drawing.Point(114, 365);
+            this.Maxspeed.Name = "Maxspeed";
+            this.Maxspeed.Size = new System.Drawing.Size(100, 20);
+            this.Maxspeed.TabIndex = 30;
             // 
-            // textBox6
+            // Avgspeed
             // 
-            this.textBox6.Location = new System.Drawing.Point(114, 332);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 31;
+            this.Avgspeed.Location = new System.Drawing.Point(114, 332);
+            this.Avgspeed.Name = "Avgspeed";
+            this.Avgspeed.Size = new System.Drawing.Size(100, 20);
+            this.Avgspeed.TabIndex = 31;
             // 
-            // textBox7
+            // MaxHR
             // 
-            this.textBox7.Location = new System.Drawing.Point(131, 294);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(83, 20);
-            this.textBox7.TabIndex = 32;
+            this.MaxHR.Location = new System.Drawing.Point(131, 294);
+            this.MaxHR.Name = "MaxHR";
+            this.MaxHR.Size = new System.Drawing.Size(83, 20);
+            this.MaxHR.TabIndex = 32;
             // 
-            // textBox8
+            // AvgHR
             // 
-            this.textBox8.Location = new System.Drawing.Point(131, 256);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(83, 20);
-            this.textBox8.TabIndex = 33;
+            this.AvgHR.Location = new System.Drawing.Point(131, 256);
+            this.AvgHR.Name = "AvgHR";
+            this.AvgHR.Size = new System.Drawing.Size(83, 20);
+            this.AvgHR.TabIndex = 33;
             // 
-            // textBox9
+            // MinHR
             // 
-            this.textBox9.Location = new System.Drawing.Point(131, 227);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(83, 20);
-            this.textBox9.TabIndex = 34;
+            this.MinHR.Location = new System.Drawing.Point(131, 227);
+            this.MinHR.Name = "MinHR";
+            this.MinHR.Size = new System.Drawing.Size(83, 20);
+            this.MinHR.TabIndex = 34;
             // 
-            // textBox10
+            // Maxpower
             // 
-            this.textBox10.Location = new System.Drawing.Point(113, 193);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 35;
+            this.Maxpower.Location = new System.Drawing.Point(113, 193);
+            this.Maxpower.Name = "Maxpower";
+            this.Maxpower.Size = new System.Drawing.Size(100, 20);
+            this.Maxpower.TabIndex = 35;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1018, 504);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Maxpower);
+            this.Controls.Add(this.MinHR);
+            this.Controls.Add(this.AvgHR);
+            this.Controls.Add(this.MaxHR);
+            this.Controls.Add(this.Avgspeed);
+            this.Controls.Add(this.Maxspeed);
+            this.Controls.Add(this.Avgalt);
+            this.Controls.Add(this.Maxalt);
+            this.Controls.Add(this.TotDC);
+            this.Controls.Add(this.Avgpower);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label20);
@@ -507,16 +507,16 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox Avgpower;
+        private System.Windows.Forms.TextBox TotDC;
+        private System.Windows.Forms.TextBox Maxalt;
+        private System.Windows.Forms.TextBox Avgalt;
+        private System.Windows.Forms.TextBox Maxspeed;
+        private System.Windows.Forms.TextBox Avgspeed;
+        private System.Windows.Forms.TextBox MaxHR;
+        private System.Windows.Forms.TextBox AvgHR;
+        private System.Windows.Forms.TextBox MinHR;
+        private System.Windows.Forms.TextBox Maxpower;
     }
 }
 
