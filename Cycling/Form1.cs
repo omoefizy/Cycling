@@ -4,6 +4,8 @@ using System.IO;
 using System.Data;
 using System.Collections.Generic;
 using System.Linq;
+using ZedGraph;
+using System.Drawing;
 
 namespace Cycling
 {
@@ -16,9 +18,8 @@ namespace Cycling
         string[] data;
         string heading = "";
         List<HrData> Hrdata = new List<HrData>();
-        HrData newdata;
+        HrData osidata;
         DataSet osi = new DataSet();
-
         public Form1()
         {
             InitializeComponent();
@@ -108,15 +109,15 @@ namespace Cycling
                 {
 
                     string[] rowItems = data[i].Split(null);
-                    newdata = new HrData();
-                    newdata.setEntry(int.Parse(rowItems[0]), int.Parse(rowItems[1]),
+                    osidata = new HrData();
+                    osidata.setEntry(int.Parse(rowItems[0]), int.Parse(rowItems[1]),
                         int.Parse(rowItems[2]), int.Parse(rowItems[3]),
                         int.Parse(rowItems[4]), int.Parse(rowItems[5]));
-                    Hrdata.Add(newdata);
+                    Hrdata.Add(osidata);
                 }
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void openFilesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog open = new OpenFileDialog())
 
@@ -131,7 +132,7 @@ namespace Cycling
                         osi.Tables[T].Rows.Clear();
                         displayData();
                         readDisplayParams(data);
-                        //displaySummary();
+                        displaySummary();
                     }
                     else
                     {
@@ -140,18 +141,15 @@ namespace Cycling
 
                 }
             }
-        }
-        
-
-
+        }      
         public void displayData()
         {
             for (int i = 0; i < Hrdata.Count; i++)
             {
-                newdata = Hrdata[i];
-                osi.Tables[T].Rows.Add(newdata.getHeartRate(), newdata.getSpeed(),
-                        newdata.getCadence(), newdata.getAscent(), newdata.getPower(),
-                        newdata.getPowerBal());
+                osidata = Hrdata[i];
+                osi.Tables[T].Rows.Add(osidata.getHeartRate(), osidata.getSpeed(),
+                        osidata.getCadence(), osidata.getAscent(), osidata.getPower(),
+                        osidata.getPowerBal());
             }
 
 
@@ -207,7 +205,7 @@ namespace Cycling
             return powerBal;
         }
         }
-        public void displaySummary()
+      public void displaySummary()
         {
             Maxspeed.Text = dataGridView1.Rows.Cast<DataGridViewRow>()
            .AsEnumerable().Max(x => Convert.ToInt32(x.Cells[1].Value)).ToString();
@@ -236,21 +234,296 @@ namespace Cycling
             Avgalt.Text = dataGridView1.Rows.Cast<DataGridViewRow>()
            .AsEnumerable().Average(x => Convert.ToInt32(x.Cells[3].Value)).ToString();
 
-            string l = dataGridView1.Rows.Cast<DataGridViewRow>()
+            string omo = dataGridView1.Rows.Cast<DataGridViewRow>()
             .AsEnumerable().Sum(x => Convert.ToInt32(x.Cells[1].Value)).ToString();
 
-            /*int td = 0;
-             for (int h = 0; h < dataGridView1.RowCount; h++)
-             {
-                 string l = dataGridView1.Rows[h].Cells[1].Value.ToString();
-                 int distance = (int.Parse(l)) / 3600;
-                 td += distance;
-             }*/
-            TotDC.Text = l;
-            DataTable osi;
-            osi = Dataset.Tables[T];
+            TotDC.Text = omo;
+           
 
         }
+        private void groupedGraphToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Setup the graph
+            CreateGraph(zedGraphControl1);
+            // Size the control to fill the form with a margin
+            SetSize();
+        }
+        // Build the Chart
+        // SetSize() is separate from Resize() so we can 
+        // call it independently from the Form1_Load() method
+        // This leaves a 10 px margin around the outside of the control
+        // Customize this to fit your needs
+        private void SetSize()
+    {
+        zedGraphControl1.Location = new Point(10, 10);
+        // Leave a small margin around the outside of the control
+        zedGraphControl1.Size = new Size(ClientRectangle.Width - 5,
+                                ClientRectangle.Height - 5);
+    }
+
+    // Respond to form 'Load' event
+
+    private void CreateGraph(ZedGraphControl zgc)
+    {
+            // get a reference to the GraphPane
+            GraphPane myPane = zgc.GraphPane;
+
+            // Set the Titles
+            myPane.Title.Text = "Summary Grouped Graph";
+            myPane.XAxis.Title.Text = "Label";
+            myPane.YAxis.Title.Text = "Y Axis";
+
+            // Make up some random data points
+            string[] labels = { "Power", "Heart Rate", "Speed",
+                      "Altitude"};
+            double[] y = { 100, 115, 75, 22};
+            double[] y2 = { 90, 100, 95, 35};
+            double[] y3 = { 80, 110, 65, 15};
+            double[] y4 = { 120, 125, 100, 40};
+
+            // Generate a red bar with "Curve 1" in the legend
+            BarItem myBar = myPane.AddBar("Curve 1", null, y,
+                                                        Color.Red);
+            myBar.Bar.Fill = new Fill(Color.Red, Color.White,
+                                                        Color.Red);
+
+            // Generate a blue bar with "Curve 2" in the legend
+            myBar = myPane.AddBar("Curve 2", null, y2, Color.Blue);
+            myBar.Bar.Fill = new Fill(Color.Blue, Color.White,
+                                                        Color.Blue);
+
+            // Generate a green bar with "Curve 3" in the legend
+            myBar = myPane.AddBar("Curve 3", null, y3, Color.Green);
+            myBar.Bar.Fill = new Fill(Color.Green, Color.White,
+                                                        Color.Green);
+
+            // Generate a black line with "Curve 4" in the legend
+            LineItem myCurve = myPane.AddCurve("Curve 4",
+                  null, y4, Color.Black, SymbolType.Circle);
+            myCurve.Line.Fill = new Fill(Color.White,
+                                  Color.LightSkyBlue, -45F);
+
+            // Fix up the curve attributes a little
+            myCurve.Symbol.Size = 8.0F;
+            myCurve.Symbol.Fill = new Fill(Color.White);
+            myCurve.Line.Width = 2.0F;
+
+            // Draw the X tics between the labels instead of 
+            // at the labels
+            myPane.XAxis.MajorTic.IsBetweenLabels = true;
+
+            // Set the XAxis labels
+            myPane.XAxis.Scale.TextLabels = labels;
+            // Set the XAxis to Text type
+            myPane.XAxis.Type = AxisType.Text;
+
+            // Fill the Axis and Pane backgrounds
+            myPane.Chart.Fill = new Fill(Color.White,
+                  Color.FromArgb(255, 255, 166), 90F);
+            myPane.Fill = new Fill(Color.FromArgb(250, 250, 255));
+
+            // Tell ZedGraph to refigure the
+            // axes since the data have changed
+            zgc.AxisChange();
+        }
+
+        //Switches of different Graph
+        public void PowerGraph(ZedGraphControl zgc)
+        {
+            GraphPane myPane = zgc.GraphPane;
+
+            // Set the Titles
+            myPane.Title.Text = "Power Graph";
+            myPane.XAxis.Title.Text = "Label";
+            myPane.YAxis.Title.Text = "Y Axis";
+
+            // Make up some random data points
+            string[] labels = { "Power"};
+            double[] y = { 100, 115, 75, 22 };
+            // Generate a red bar with "Curve 1" in the legend
+            BarItem myBar = myPane.AddBar("Curve 1", null, y,
+                                                        Color.Red);
+            myBar.Bar.Fill = new Fill(Color.Red, Color.White,
+                                                        Color.Red);
+
+            // Fix up the curve attributes a little
+            /*myCurve.Symbol.Size = 8.0F;
+            myCurve.Symbol.Fill = new Fill(Color.White);
+            myCurve.Line.Width = 2.0F;*/
+
+            // Draw the X tics between the labels instead of 
+            // at the labels
+            myPane.XAxis.MajorTic.IsBetweenLabels = true;
+
+            // Set the XAxis labels
+            myPane.XAxis.Scale.TextLabels = labels;
+            // Set the XAxis to Text type
+            myPane.XAxis.Type = AxisType.Text;
+
+            // Fill the Axis and Pane backgrounds
+            myPane.Chart.Fill = new Fill(Color.White,
+                  Color.FromArgb(255, 255, 166), 90F);
+            myPane.Fill = new Fill(Color.FromArgb(250, 250, 255));
+
+
+            // Tell ZedGraph to refigure the
+            // axes since the data have changed
+            zgc.AxisChange();
+        }
+        private void powerGraphToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PowerGraph(zedGraphControl1);
+            // Size the control to fill the form with a margin
+            SetSize();
+        }
+        public void CreateHeartGraph(ZedGraphControl zgc)
+        {
+            GraphPane myPane = zgc.GraphPane;
+
+            // Set the Titles
+            myPane.Title.Text = "Heart Rate Graph";
+            myPane.XAxis.Title.Text = "Label";
+            myPane.YAxis.Title.Text = "Y Axis";
+
+            // Make up some random data points
+            string[] labels = { "Heart Rate" };
+            double[] y2 = { 90, 100, 95, 35 };
+            // Generate a red bar with "Curve 1" in the legend
+            // Generate a blue bar with "Curve 2" in the legend
+            BarItem myBar = myPane.AddBar("Curve 2", null, y2, Color.Blue);
+            myBar.Bar.Fill = new Fill(Color.Blue, Color.White,
+                                                        Color.Blue);
+            // Fix up the curve attributes a little
+            /*myCurve.Symbol.Size = 8.0F;
+            myCurve.Symbol.Fill = new Fill(Color.White);
+            myCurve.Line.Width = 2.0F;*/
+
+            // Draw the X tics between the labels instead of 
+            // at the labels
+            myPane.XAxis.MajorTic.IsBetweenLabels = true;
+
+            // Set the XAxis labels
+            myPane.XAxis.Scale.TextLabels = labels;
+            // Set the XAxis to Text type
+            myPane.XAxis.Type = AxisType.Text;
+
+            // Fill the Axis and Pane backgrounds
+            myPane.Chart.Fill = new Fill(Color.White,
+                  Color.FromArgb(255, 255, 166), 90F);
+            myPane.Fill = new Fill(Color.FromArgb(250, 250, 255));
+
+
+            // Tell ZedGraph to refigure the
+            // axes since the data have changed
+            zgc.AxisChange();
+        }
+        private void heartRateGraphToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateHeartGraph(zedGraphControl1);
+            // Size the control to fill the form with a margin
+            SetSize();
+        }
+
+        public void CreateSpeedGraph(ZedGraphControl zgc)
+        {
+            GraphPane myPane = zgc.GraphPane;
+
+            // Set the Titles
+            myPane.Title.Text = "Speed Graph";
+            myPane.XAxis.Title.Text = "Label";
+            myPane.YAxis.Title.Text = "Y Axis";
+
+            // Make up some random data points
+            string[] labels = { "Speed" };
+            double[] y3 = { 80, 110, 65, 15 };
+            // Generate a red bar with "Curve 1" in the legend
+            // Generate a blue bar with "Curve 2" in the legend
+            BarItem myBar = myPane.AddBar("Curve 3", null, y3, Color.Green);
+            myBar.Bar.Fill = new Fill(Color.Green, Color.White,
+                                                        Color.Green);
+            // Fix up the curve attributes a little
+            /*myCurve.Symbol.Size = 8.0F;
+            myCurve.Symbol.Fill = new Fill(Color.White);
+            myCurve.Line.Width = 2.0F;*/
+
+            // Draw the X tics between the labels instead of 
+            // at the labels
+            myPane.XAxis.MajorTic.IsBetweenLabels = true;
+
+            // Set the XAxis labels
+            myPane.XAxis.Scale.TextLabels = labels;
+            // Set the XAxis to Text type
+            myPane.XAxis.Type = AxisType.Text;
+
+            // Fill the Axis and Pane backgrounds
+            myPane.Chart.Fill = new Fill(Color.White,
+                  Color.FromArgb(255, 255, 166), 90F);
+            myPane.Fill = new Fill(Color.FromArgb(250, 250, 255));
+
+
+            // Tell ZedGraph to refigure the
+            // axes since the data have changed
+            zgc.AxisChange();
+        }
+        private void speedGraphToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateSpeedGraph(zedGraphControl1);
+            // Size the control to fill the form with a margin
+            SetSize();
+        }
+        public void CreateAltitudeGraph(ZedGraphControl zgc)
+        {
+            GraphPane myPane = zgc.GraphPane;
+
+            // Set the Titles
+            myPane.Title.Text = "Altitude Graph";
+            myPane.XAxis.Title.Text = "Label";
+            myPane.YAxis.Title.Text = "Y Axis";
+
+            // Make up some random data points
+            string[] labels = { "Altitude" };
+            double[] y5 = { 100, 130, 95, 45 };
+            // Generate a red bar with "Curve 1" in the legend
+            // Generate a blue bar with "Curve 2" in the legend
+            BarItem myBar = myPane.AddBar("Curve 4", null, y5, Color.Black);
+            myBar.Bar.Fill = new Fill(Color.Black, Color.White,
+                                                        Color.Black);
+            // Fix up the curve attributes a little
+            /*myCurve.Symbol.Size = 8.0F;
+            myCurve.Symbol.Fill = new Fill(Color.White);
+            myCurve.Line.Width = 2.0F;*/
+
+            // Draw the X tics between the labels instead of 
+            // at the labels
+            myPane.XAxis.MajorTic.IsBetweenLabels = true;
+
+            // Set the XAxis labels
+            myPane.XAxis.Scale.TextLabels = labels;
+            // Set the XAxis to Text type
+            myPane.XAxis.Type = AxisType.Text;
+
+            // Fill the Axis and Pane backgrounds
+            myPane.Chart.Fill = new Fill(Color.White,
+                  Color.FromArgb(255, 255, 166), 90F);
+            myPane.Fill = new Fill(Color.FromArgb(250, 250, 255));
+
+
+            // Tell ZedGraph to refigure the
+            // axes since the data have changed
+            zgc.AxisChange();
+        }
+        private void altitudeGraphToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateAltitudeGraph(zedGraphControl1);
+            // Size the control to fill the form with a margin
+            SetSize();
+        }
+        private void zedGraphControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 
 }
