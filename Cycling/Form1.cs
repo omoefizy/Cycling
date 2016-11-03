@@ -247,6 +247,7 @@ namespace Cycling
             CreateGraph(zedGraphControl1);
             // Size the control to fill the form with a margin
             SetSize();
+            displaySummary();
         }
         // Build the Chart
         // SetSize() is separate from Resize() so we can 
@@ -266,39 +267,39 @@ namespace Cycling
     private void CreateGraph(ZedGraphControl zgc)
     {
             // get a reference to the GraphPane
-            GraphPane myPane = zgc.GraphPane;
+            GraphPane djeasy = zgc.GraphPane;
 
             // Set the Titles
-            myPane.Title.Text = "Summary Grouped Graph";
-            myPane.XAxis.Title.Text = "Label";
-            myPane.YAxis.Title.Text = "Y Axis";
+            djeasy.Title.Text = "Summary For Grouped Graph";
+            djeasy.XAxis.Title.Text = "Label";
+            djeasy.YAxis.Title.Text = "Y Axis";
 
             // Make up some random data points
             string[] labels = { "Power", "Heart Rate", "Speed",
                       "Altitude"};
             double[] y = { 100, 115, 75, 22};
-            double[] y2 = { 90, 100, 95, 35};
-            double[] y3 = { 80, 110, 65, 15};
-            double[] y4 = { 120, 125, 100, 40};
+            double[] y2 = { 200, 150, 100, 50};
+            double[] y3 = { 300, 250, 200, 150};
+            double[] y4 = { 400, 350, 300, 250};
 
             // Generate a red bar with "Curve 1" in the legend
-            BarItem myBar = myPane.AddBar("Curve 1", null, y,
+            BarItem myBar = djeasy.AddBar("Curve 1", null, y,
                                                         Color.Red);
             myBar.Bar.Fill = new Fill(Color.Red, Color.White,
                                                         Color.Red);
 
             // Generate a blue bar with "Curve 2" in the legend
-            myBar = myPane.AddBar("Curve 2", null, y2, Color.Blue);
+            myBar = djeasy.AddBar("Curve 2", null, y2, Color.Blue);
             myBar.Bar.Fill = new Fill(Color.Blue, Color.White,
                                                         Color.Blue);
 
             // Generate a green bar with "Curve 3" in the legend
-            myBar = myPane.AddBar("Curve 3", null, y3, Color.Green);
+            myBar = djeasy.AddBar("Curve 3", null, y3, Color.Green);
             myBar.Bar.Fill = new Fill(Color.Green, Color.White,
                                                         Color.Green);
 
             // Generate a black line with "Curve 4" in the legend
-            LineItem myCurve = myPane.AddCurve("Curve 4",
+            LineItem myCurve = djeasy.AddCurve("Curve 4",
                   null, y4, Color.Black, SymbolType.Circle);
             myCurve.Line.Fill = new Fill(Color.White,
                                   Color.LightSkyBlue, -45F);
@@ -310,17 +311,17 @@ namespace Cycling
 
             // Draw the X tics between the labels instead of 
             // at the labels
-            myPane.XAxis.MajorTic.IsBetweenLabels = true;
+            djeasy.XAxis.MajorTic.IsBetweenLabels = true;
 
             // Set the XAxis labels
-            myPane.XAxis.Scale.TextLabels = labels;
+            djeasy.XAxis.Scale.TextLabels = labels;
             // Set the XAxis to Text type
-            myPane.XAxis.Type = AxisType.Text;
+            djeasy.XAxis.Type = AxisType.Text;
 
             // Fill the Axis and Pane backgrounds
-            myPane.Chart.Fill = new Fill(Color.White,
+            djeasy.Chart.Fill = new Fill(Color.White,
                   Color.FromArgb(255, 255, 166), 90F);
-            myPane.Fill = new Fill(Color.FromArgb(250, 250, 255));
+            djeasy.Fill = new Fill(Color.FromArgb(250, 250, 255));
 
             // Tell ZedGraph to refigure the
             // axes since the data have changed
@@ -330,18 +331,18 @@ namespace Cycling
         //Switches of different Graph
         public void PowerGraph(ZedGraphControl zgc)
         {
-            GraphPane myPane = zgc.GraphPane;
+            GraphPane djeasy = zgc.GraphPane;
 
             // Set the Titles
-            myPane.Title.Text = "Power Graph";
-            myPane.XAxis.Title.Text = "Label";
-            myPane.YAxis.Title.Text = "Y Axis";
+            djeasy.Title.Text = "Power Graph";
+            djeasy.XAxis.Title.Text = "Label";
+            djeasy.YAxis.Title.Text = "Y Axis";
 
             // Make up some random data points
-            string[] labels = { "Power"};
+            string[] labels = { "Power" };
             double[] y = { 100, 115, 75, 22 };
             // Generate a red bar with "Curve 1" in the legend
-            BarItem myBar = myPane.AddBar("Curve 1", null, y,
+            BarItem myBar = djeasy.AddBar("Curve 1", null, y,
                                                         Color.Red);
             myBar.Bar.Fill = new Fill(Color.Red, Color.White,
                                                         Color.Red);
@@ -353,17 +354,17 @@ namespace Cycling
 
             // Draw the X tics between the labels instead of 
             // at the labels
-            myPane.XAxis.MajorTic.IsBetweenLabels = true;
+            djeasy.XAxis.MajorTic.IsBetweenLabels = true;
 
             // Set the XAxis labels
-            myPane.XAxis.Scale.TextLabels = labels;
+            djeasy.XAxis.Scale.TextLabels = labels;
             // Set the XAxis to Text type
-            myPane.XAxis.Type = AxisType.Text;
+            djeasy.XAxis.Type = AxisType.Text;
 
             // Fill the Axis and Pane backgrounds
-            myPane.Chart.Fill = new Fill(Color.White,
+            djeasy.Chart.Fill = new Fill(Color.White,
                   Color.FromArgb(255, 255, 166), 90F);
-            myPane.Fill = new Fill(Color.FromArgb(250, 250, 255));
+            djeasy.Fill = new Fill(Color.FromArgb(250, 250, 255));
 
 
             // Tell ZedGraph to refigure the
@@ -375,22 +376,24 @@ namespace Cycling
             PowerGraph(zedGraphControl1);
             // Size the control to fill the form with a margin
             SetSize();
+            PowerGraph power = new PowerGraph();
+            power.Show();
         }
         public void CreateHeartGraph(ZedGraphControl zgc)
         {
-            GraphPane myPane = zgc.GraphPane;
+            GraphPane djeasy = zgc.GraphPane;
 
             // Set the Titles
-            myPane.Title.Text = "Heart Rate Graph";
-            myPane.XAxis.Title.Text = "Label";
-            myPane.YAxis.Title.Text = "Y Axis";
+            djeasy.Title.Text = "Heart Rate Graph";
+            djeasy.XAxis.Title.Text = "Label";
+            djeasy.YAxis.Title.Text = "Y Axis";
 
             // Make up some random data points
             string[] labels = { "Heart Rate" };
             double[] y2 = { 90, 100, 95, 35 };
             // Generate a red bar with "Curve 1" in the legend
             // Generate a blue bar with "Curve 2" in the legend
-            BarItem myBar = myPane.AddBar("Curve 2", null, y2, Color.Blue);
+            BarItem myBar = djeasy.AddBar("Curve 2", null, y2, Color.Blue);
             myBar.Bar.Fill = new Fill(Color.Blue, Color.White,
                                                         Color.Blue);
             // Fix up the curve attributes a little
@@ -400,17 +403,17 @@ namespace Cycling
 
             // Draw the X tics between the labels instead of 
             // at the labels
-            myPane.XAxis.MajorTic.IsBetweenLabels = true;
+            djeasy.XAxis.MajorTic.IsBetweenLabels = true;
 
             // Set the XAxis labels
-            myPane.XAxis.Scale.TextLabels = labels;
+            djeasy.XAxis.Scale.TextLabels = labels;
             // Set the XAxis to Text type
-            myPane.XAxis.Type = AxisType.Text;
+            djeasy.XAxis.Type = AxisType.Text;
 
             // Fill the Axis and Pane backgrounds
-            myPane.Chart.Fill = new Fill(Color.White,
+            djeasy.Chart.Fill = new Fill(Color.White,
                   Color.FromArgb(255, 255, 166), 90F);
-            myPane.Fill = new Fill(Color.FromArgb(250, 250, 255));
+            djeasy.Fill = new Fill(Color.FromArgb(250, 250, 255));
 
 
             // Tell ZedGraph to refigure the
@@ -426,19 +429,19 @@ namespace Cycling
 
         public void CreateSpeedGraph(ZedGraphControl zgc)
         {
-            GraphPane myPane = zgc.GraphPane;
+            GraphPane djeasy = zgc.GraphPane;
 
             // Set the Titles
-            myPane.Title.Text = "Speed Graph";
-            myPane.XAxis.Title.Text = "Label";
-            myPane.YAxis.Title.Text = "Y Axis";
+            djeasy.Title.Text = "Speed Graph";
+            djeasy.XAxis.Title.Text = "Label";
+            djeasy.YAxis.Title.Text = "Y Axis";
 
             // Make up some random data points
             string[] labels = { "Speed" };
             double[] y3 = { 80, 110, 65, 15 };
             // Generate a red bar with "Curve 1" in the legend
             // Generate a blue bar with "Curve 2" in the legend
-            BarItem myBar = myPane.AddBar("Curve 3", null, y3, Color.Green);
+            BarItem myBar = djeasy.AddBar("Curve 3", null, y3, Color.Green);
             myBar.Bar.Fill = new Fill(Color.Green, Color.White,
                                                         Color.Green);
             // Fix up the curve attributes a little
@@ -448,17 +451,17 @@ namespace Cycling
 
             // Draw the X tics between the labels instead of 
             // at the labels
-            myPane.XAxis.MajorTic.IsBetweenLabels = true;
+            djeasy.XAxis.MajorTic.IsBetweenLabels = true;
 
             // Set the XAxis labels
-            myPane.XAxis.Scale.TextLabels = labels;
+            djeasy.XAxis.Scale.TextLabels = labels;
             // Set the XAxis to Text type
-            myPane.XAxis.Type = AxisType.Text;
+            djeasy.XAxis.Type = AxisType.Text;
 
             // Fill the Axis and Pane backgrounds
-            myPane.Chart.Fill = new Fill(Color.White,
+            djeasy.Chart.Fill = new Fill(Color.White,
                   Color.FromArgb(255, 255, 166), 90F);
-            myPane.Fill = new Fill(Color.FromArgb(250, 250, 255));
+            djeasy.Fill = new Fill(Color.FromArgb(250, 250, 255));
 
 
             // Tell ZedGraph to refigure the
@@ -473,19 +476,19 @@ namespace Cycling
         }
         public void CreateAltitudeGraph(ZedGraphControl zgc)
         {
-            GraphPane myPane = zgc.GraphPane;
+            GraphPane djeasy = zgc.GraphPane;
 
             // Set the Titles
-            myPane.Title.Text = "Altitude Graph";
-            myPane.XAxis.Title.Text = "Label";
-            myPane.YAxis.Title.Text = "Y Axis";
+            djeasy.Title.Text = "Altitude Graph";
+            djeasy.XAxis.Title.Text = "Label";
+            djeasy.YAxis.Title.Text = "Y Axis";
 
             // Make up some random data points
             string[] labels = { "Altitude" };
             double[] y5 = { 100, 130, 95, 45 };
             // Generate a red bar with "Curve 1" in the legend
             // Generate a blue bar with "Curve 2" in the legend
-            BarItem myBar = myPane.AddBar("Curve 4", null, y5, Color.Black);
+            BarItem myBar = djeasy.AddBar("Curve 4", null, y5, Color.Black);
             myBar.Bar.Fill = new Fill(Color.Black, Color.White,
                                                         Color.Black);
             // Fix up the curve attributes a little
@@ -495,17 +498,17 @@ namespace Cycling
 
             // Draw the X tics between the labels instead of 
             // at the labels
-            myPane.XAxis.MajorTic.IsBetweenLabels = true;
+            djeasy.XAxis.MajorTic.IsBetweenLabels = true;
 
             // Set the XAxis labels
-            myPane.XAxis.Scale.TextLabels = labels;
+            djeasy.XAxis.Scale.TextLabels = labels;
             // Set the XAxis to Text type
-            myPane.XAxis.Type = AxisType.Text;
+            djeasy.XAxis.Type = AxisType.Text;
 
             // Fill the Axis and Pane backgrounds
-            myPane.Chart.Fill = new Fill(Color.White,
+            djeasy.Chart.Fill = new Fill(Color.White,
                   Color.FromArgb(255, 255, 166), 90F);
-            myPane.Fill = new Fill(Color.FromArgb(250, 250, 255));
+            djeasy.Fill = new Fill(Color.FromArgb(250, 250, 255));
 
 
             // Tell ZedGraph to refigure the
