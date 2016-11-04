@@ -1,6 +1,6 @@
 ﻿namespace Cycling
 {
-    partial class PowerGraph
+    partial class SpeedGraph
     {
         /// <summary>
         /// Required designer variable.
@@ -43,18 +43,18 @@
             this.zedGraphControl1.ScrollMinX = 0D;
             this.zedGraphControl1.ScrollMinY = 0D;
             this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(484, 372);
+            this.zedGraphControl1.Size = new System.Drawing.Size(454, 342);
             this.zedGraphControl1.TabIndex = 0;
             // 
-            // PowerGraph
+            // SpeedGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 396);
+            this.ClientSize = new System.Drawing.Size(478, 366);
             this.Controls.Add(this.zedGraphControl1);
-            this.Name = "PowerGraph";
-            this.Text = "PowerGraph";
-            this.Load += new System.EventHandler(this.PowerGraph_Load);
+            this.Name = "SpeedGraph";
+            this.Text = "SpeedGraph";
+            this.Load += new System.EventHandler(this.SpeedGraph_Load);
             this.ResumeLayout(false);
 
         }

@@ -1,6 +1,6 @@
 ﻿namespace Cycling
 {
-    partial class PowerGraph
+    partial class HeartGraph
     {
         /// <summary>
         /// Required designer variable.
@@ -43,18 +43,18 @@
             this.zedGraphControl1.ScrollMinX = 0D;
             this.zedGraphControl1.ScrollMinY = 0D;
             this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(484, 372);
+            this.zedGraphControl1.Size = new System.Drawing.Size(426, 352);
             this.zedGraphControl1.TabIndex = 0;
             // 
-            // PowerGraph
+            // HeartGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 396);
+            this.ClientSize = new System.Drawing.Size(450, 376);
             this.Controls.Add(this.zedGraphControl1);
-            this.Name = "PowerGraph";
-            this.Text = "PowerGraph";
-            this.Load += new System.EventHandler(this.PowerGraph_Load);
+            this.Name = "HeartGraph";
+            this.Text = "HeartGraph";
+            this.Load += new System.EventHandler(this.HeartGraph_Load);
             this.ResumeLayout(false);
 
         }
