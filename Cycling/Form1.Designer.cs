@@ -81,6 +81,7 @@
             this.altitudeGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupedGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label21 = new System.Windows.Forms.Label();
+            this.graphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -547,7 +548,8 @@
             this.heartRateGraphToolStripMenuItem,
             this.speedGraphToolStripMenuItem,
             this.altitudeGraphToolStripMenuItem,
-            this.groupedGraphToolStripMenuItem});
+            this.groupedGraphToolStripMenuItem,
+            this.graphToolStripMenuItem});
             this.graphsToolStripMenuItem.Name = "graphsToolStripMenuItem";
             this.graphsToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.graphsToolStripMenuItem.Text = "Switch Graph";
@@ -597,6 +599,13 @@
             this.label21.Size = new System.Drawing.Size(161, 22);
             this.label21.TabIndex = 51;
             this.label21.Text = "HR Data Summary ";
+            // 
+            // graphToolStripMenuItem
+            // 
+            this.graphToolStripMenuItem.Name = "graphToolStripMenuItem";
+            this.graphToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.graphToolStripMenuItem.Text = "Graph ";
+            this.graphToolStripMenuItem.Click += new System.EventHandler(this.graphToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -713,6 +722,7 @@
         private System.Windows.Forms.ToolStripMenuItem openFilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem groupedGraphToolStripMenuItem;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ToolStripMenuItem graphToolStripMenuItem;
     }
 }
 

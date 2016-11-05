@@ -43,14 +43,14 @@
             this.zedGraphControl1.ScrollMinX = 0D;
             this.zedGraphControl1.ScrollMinY = 0D;
             this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(484, 372);
+            this.zedGraphControl1.Size = new System.Drawing.Size(739, 407);
             this.zedGraphControl1.TabIndex = 0;
             // 
             // PowerGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 396);
+            this.ClientSize = new System.Drawing.Size(763, 422);
             this.Controls.Add(this.zedGraphControl1);
             this.Name = "PowerGraph";
             this.Text = "PowerGraph";

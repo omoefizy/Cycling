@@ -36,3 +36,4 @@ C:\Users\OMOBO\Documents\Visual Studio 2015\Projects\Cycling\Assignment\Cycling\
 C:\Users\OMOBO\Documents\Visual Studio 2015\Projects\Cycling\Assignment\Cycling\obj\Debug\Cycling.AltitudeGraph.resources
 C:\Users\OMOBO\Documents\Visual Studio 2015\Projects\Cycling\Assignment\Cycling\obj\Debug\Cycling.GroupGraph.resources
 C:\Users\OMOBO\Documents\Visual Studio 2015\Projects\Cycling\Assignment\Cycling\obj\Debug\Cycling.HeartGraph.resources
+C:\Users\OMOBO\Documents\Visual Studio 2015\Projects\Cycling\Assignment\Cycling\obj\Debug\Cycling.Form2.resources

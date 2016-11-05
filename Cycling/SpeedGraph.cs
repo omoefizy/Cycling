@@ -35,17 +35,17 @@ namespace Cycling
             double[] y4 = { 400, 350, 300, 250 };
             // Generate a red bar with "Curve 1" in the legend
             // Generate a blue bar with "Curve 2" in the legend
-            BarItem myBar = djeasy.AddBar("Curve 3", null, y3, Color.Pink);
+            BarItem myBar = djeasy.AddBar("Avg", null, y3, Color.Pink);
             myBar.Bar.Fill = new Fill(Color.Pink, Color.White,
                                                         Color.Pink);
 
             // Generate a blue bar with "Curve 2" in the legend
-            myBar = djeasy.AddBar("Curve 2", null, y2, Color.RosyBrown);
+            myBar = djeasy.AddBar("Max", null, y2, Color.RosyBrown);
             myBar.Bar.Fill = new Fill(Color.RosyBrown, Color.White,
                                                         Color.RosyBrown);
 
             // Generate a green bar with "Curve 3" in the legend
-            myBar = djeasy.AddBar("Curve 3", null, y3, Color.RoyalBlue);
+            myBar = djeasy.AddBar("", null, y3, Color.RoyalBlue);
             myBar.Bar.Fill = new Fill(Color.RoyalBlue, Color.White,
                                                         Color.RoyalBlue);
             // Fix up the curve attributes a little

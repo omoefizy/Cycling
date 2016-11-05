@@ -37,17 +37,17 @@ namespace Cycling
 
             // Generate a red bar with "Curve 1" in the legend
             // Generate a blue bar with "Curve 2" in the legend
-            BarItem myBar = djeasy.AddBar("Curve 4", null, y4, Color.Black);
+            BarItem myBar = djeasy.AddBar("Avg", null, y4, Color.Black);
             myBar.Bar.Fill = new Fill(Color.Black, Color.White,
                                                         Color.Black);
 
             // Generate a blue bar with "Curve 2" in the legend
-            myBar = djeasy.AddBar("Curve 2", null, y2, Color.PaleGreen);
+            myBar = djeasy.AddBar("Max", null, y2, Color.PaleGreen);
             myBar.Bar.Fill = new Fill(Color.PaleGreen, Color.White,
                                                         Color.PaleGreen);
 
             // Generate a green bar with "Curve 3" in the legend
-            myBar = djeasy.AddBar("Curve 3", null, y3, Color.Gray);
+            myBar = djeasy.AddBar("", null, y3, Color.Gray);
             myBar.Bar.Fill = new Fill(Color.Gray, Color.White,
                                                         Color.Gray);
             /*LineItem myCurve = djeasy.AddCurve("Curve 4",
@@ -84,5 +84,6 @@ namespace Cycling
             // Size the control to fill the form with a margin
             SetSize();
         }
-    }
+
+       }
 }

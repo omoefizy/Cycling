@@ -43,14 +43,14 @@
             this.zedGraphControl1.ScrollMinX = 0D;
             this.zedGraphControl1.ScrollMinY = 0D;
             this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(454, 342);
+            this.zedGraphControl1.Size = new System.Drawing.Size(804, 398);
             this.zedGraphControl1.TabIndex = 0;
             // 
             // SpeedGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 366);
+            this.ClientSize = new System.Drawing.Size(828, 422);
             this.Controls.Add(this.zedGraphControl1);
             this.Name = "SpeedGraph";
             this.Text = "SpeedGraph";

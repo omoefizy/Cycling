@@ -43,14 +43,14 @@
             this.zedGraphControl1.ScrollMinX = 0D;
             this.zedGraphControl1.ScrollMinY = 0D;
             this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(426, 352);
+            this.zedGraphControl1.Size = new System.Drawing.Size(777, 409);
             this.zedGraphControl1.TabIndex = 0;
             // 
             // HeartGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 376);
+            this.ClientSize = new System.Drawing.Size(801, 433);
             this.Controls.Add(this.zedGraphControl1);
             this.Name = "HeartGraph";
             this.Text = "HeartGraph";

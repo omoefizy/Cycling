@@ -15,12 +15,18 @@ namespace Cycling
         {
             zedGraphControl1.Location = new Point(10, 10);
             // Leave a small margin around the outside of the control
-            zedGraphControl1.Size = new Size(ClientRectangle.Width - 5,
-                                    ClientRectangle.Height - 5);
+            zedGraphControl1.Size = new Size(ClientRectangle.Width - 25,
+                                    ClientRectangle.Height -25);
         }
 
         // Respond to form 'Load' event
+        // Build the Chart
+        // SetSize() is separate from Resize() so we can 
+        // call it independently from the Form1_Load() method
+        // This leaves a 10 px margin around the outside of the control
+        // Customize this to fit your needs
 
+     
         private void CreateGraph(ZedGraphControl zgc)
         {
             // get a reference to the GraphPane
@@ -40,23 +46,23 @@ namespace Cycling
             double[] y4 = { 400, 350, 300, 250 };
 
             // Generate a red bar with "Curve 1" in the legend
-            BarItem myBar = djeasy.AddBar("Curve 1", null, y,
+            BarItem myBar = djeasy.AddBar("Min", null, y,
                                                         Color.Red);
             myBar.Bar.Fill = new Fill(Color.Red, Color.White,
                                                         Color.Red);
 
             // Generate a blue bar with "Curve 2" in the legend
-            myBar = djeasy.AddBar("Curve 2", null, y2, Color.Blue);
+            myBar = djeasy.AddBar("Avg", null, y2, Color.Blue);
             myBar.Bar.Fill = new Fill(Color.Blue, Color.White,
                                                         Color.Blue);
 
             // Generate a green bar with "Curve 3" in the legend
-            myBar = djeasy.AddBar("Curve 3", null, y3, Color.Green);
+            myBar = djeasy.AddBar("Max", null, y3, Color.Green);
             myBar.Bar.Fill = new Fill(Color.Green, Color.White,
                                                         Color.Green);
 
             // Generate a black line with "Curve 4" in the legend
-            LineItem myCurve = djeasy.AddCurve("Curve 4",
+            LineItem myCurve = djeasy.AddCurve("Line",
                   null, y4, Color.Black, SymbolType.Circle);
             myCurve.Line.Fill = new Fill(Color.White,
                                   Color.LightSkyBlue, -45F);

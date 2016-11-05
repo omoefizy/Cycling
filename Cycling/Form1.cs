@@ -4,8 +4,6 @@ using System.IO;
 using System.Data;
 using System.Collections.Generic;
 using System.Linq;
-using ZedGraph;
-using System.Drawing;
 
 namespace Cycling
 {
@@ -148,7 +146,7 @@ namespace Cycling
             {
                 osiData = Hrdata[i];
                 osi.Tables[O].Rows.Add(osiData.getHeartRate(), osiData.getSpeed(),
-                        osiData.getCadence(), osiData.getAscent(), osiData.getPower(),
+                        osiData.getCadence(), osiData.getAltitude(), osiData.getPower(),
                         osiData.getPowerBal());
             }
 
@@ -192,7 +190,7 @@ namespace Cycling
         {
             return cadence;
         }
-        public int getAscent()
+        public int getAltitude()
         {
             return alt;
         }
@@ -204,6 +202,7 @@ namespace Cycling
         {
             return powerBal;
         }
+
         }
       public void displaySummary()
         {
@@ -241,18 +240,13 @@ namespace Cycling
            
 
         }
+
         private void groupedGraphToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GroupGraph group = new GroupGraph();
             group.Show();
         }
-        // Build the Chart
-        // SetSize() is separate from Resize() so we can 
-        // call it independently from the Form1_Load() method
-        // This leaves a 10 px margin around the outside of the control
-        // Customize this to fit your needs
-   
-        //Switches of different Graph
+        
         private void powerGraphToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PowerGraph power = new PowerGraph();
@@ -277,7 +271,12 @@ namespace Cycling
             AltitudeGraph Alt = new AltitudeGraph();
             Alt.Show();
         }
-             
+
+        private void graphToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2(Hrdata);
+            form.Show();
+        }
     }
 
 }

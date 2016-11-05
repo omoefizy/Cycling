@@ -16,8 +16,8 @@ namespace Cycling
         {
             zedGraphControl1.Location = new Point(10, 10);
             // Leave a small margin around the outside of the control
-            zedGraphControl1.Size = new Size(ClientRectangle.Width - 5,
-                                    ClientRectangle.Height - 5);
+            zedGraphControl1.Size = new Size(ClientRectangle.Width -25,
+                                    ClientRectangle.Height -25);
         }
         public void CreateHeartGraph(ZedGraphControl zgc)
         {
@@ -36,17 +36,17 @@ namespace Cycling
             double[] y4 = { 400, 350, 300, 250 };
             // Generate a red bar with "Curve 1" in the legend
             // Generate a blue bar with "Curve 2" in the legend
-            BarItem myBar = djeasy.AddBar("Curve 2", null, y2, Color.DeepSkyBlue);
+            BarItem myBar = djeasy.AddBar("Min", null, y2, Color.DeepSkyBlue);
             myBar.Bar.Fill = new Fill(Color.DeepSkyBlue, Color.White,
                                                         Color.DeepSkyBlue);
 
             // Generate a blue bar with "Curve 2" in the legend
-            myBar = djeasy.AddBar("Curve 2", null, y2, Color.Maroon);
+            myBar = djeasy.AddBar("Avg", null, y2, Color.Maroon);
             myBar.Bar.Fill = new Fill(Color.Maroon, Color.White,
                                                         Color.Maroon);
 
             // Generate a green bar with "Curve 3" in the legend
-            myBar = djeasy.AddBar("Curve 3", null, y3, Color.Purple);
+            myBar = djeasy.AddBar("Max", null, y3, Color.Purple);
             myBar.Bar.Fill = new Fill(Color.Purple, Color.White,
                                                         Color.Purple);
             // Fix up the curve attributes a little
