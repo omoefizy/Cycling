@@ -1,6 +1,6 @@
 ﻿namespace Cycling
 {
-    partial class Form2
+    partial class SwitchGraph
     {
         /// <summary>
         /// Required designer variable.
@@ -58,9 +58,9 @@
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Location = new System.Drawing.Point(162, 12);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.Size = new System.Drawing.Size(81, 17);
             this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.Text = "Heart Rate ";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
             // 
@@ -71,9 +71,9 @@
             this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox3.Location = new System.Drawing.Point(431, 12);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(80, 17);
+            this.checkBox3.Size = new System.Drawing.Size(57, 17);
             this.checkBox3.TabIndex = 3;
-            this.checkBox3.Text = "checkBox3";
+            this.checkBox3.Text = "Speed";
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged_1);
             // 
@@ -84,9 +84,9 @@
             this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox4.Location = new System.Drawing.Point(345, 12);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(80, 17);
+            this.checkBox4.Size = new System.Drawing.Size(72, 17);
             this.checkBox4.TabIndex = 4;
-            this.checkBox4.Text = "checkBox4";
+            this.checkBox4.Text = "Cadence ";
             this.checkBox4.UseVisualStyleBackColor = true;
             this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged_1);
             // 
@@ -97,9 +97,9 @@
             this.checkBox5.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox5.Location = new System.Drawing.Point(259, 12);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(80, 17);
+            this.checkBox5.Size = new System.Drawing.Size(64, 17);
             this.checkBox5.TabIndex = 5;
-            this.checkBox5.Text = "checkBox5";
+            this.checkBox5.Text = "Altitude ";
             this.checkBox5.UseVisualStyleBackColor = true;
             this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged_1);
             // 
@@ -110,9 +110,9 @@
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Location = new System.Drawing.Point(76, 12);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(80, 17);
+            this.checkBox2.Size = new System.Drawing.Size(56, 17);
             this.checkBox2.TabIndex = 6;
-            this.checkBox2.Text = "checkBox2";
+            this.checkBox2.Text = "Power";
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged_2);
             // 

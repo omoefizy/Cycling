@@ -7,7 +7,7 @@ using static Cycling.Form1;
 
 namespace Cycling
 {
-    public partial class Form2 : Form
+    public partial class SwitchGraph : Form
     {
         HrData graph = new HrData();
         List<HrData> Hrdata = new List<HrData>();
@@ -25,7 +25,7 @@ namespace Cycling
         PointPairList list3 = new PointPairList();
         PointPairList list4 = new PointPairList();
         PointPairList list5 = new PointPairList();
-        public Form2(List<HrData> data)
+        public SwitchGraph(List<HrData> data)
         {
             InitializeComponent();
             Hrdata = data;
@@ -64,8 +64,6 @@ namespace Cycling
 
             }
 
-
-
             curve1 = SwitchG.AddCurve(null, list1, Color.Black, SymbolType.None);
             curve2 = SwitchG.AddCurve(null, list2, Color.Navy, SymbolType.None);
             curve3 = SwitchG.AddCurve(null, list3, Color.DarkBlue, SymbolType.None);
@@ -99,10 +97,8 @@ namespace Cycling
             // Add a background gradient fill to the axis frame
             SwitchG.Chart.Fill = new Fill(Color.White,
                 Color.FromArgb(255, 255, 210), -45F);
-
-
-
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Form1 obj = new Form1();
@@ -114,7 +110,6 @@ namespace Cycling
             this.Close();
         }
 
-      
 
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -124,7 +119,7 @@ namespace Cycling
             }
             else
             {
-                curve1 = SwitchG.AddCurve(null, list1, Color.DarkOrange, SymbolType.None);
+                curve1 = SwitchG.AddCurve(null, list1, Color.Black, SymbolType.None);
             }
 
             SwitchG.AxisChange();
@@ -139,7 +134,7 @@ namespace Cycling
             }
             else
             {
-                curve5 = SwitchG.AddCurve(null, list5, Color.Purple, SymbolType.None);
+                curve5 = SwitchG.AddCurve(null, list5, Color.DarkOrange, SymbolType.None);
             }
 
             SwitchG.AxisChange();
@@ -155,7 +150,7 @@ namespace Cycling
             }
             else
             {
-                curve4 = SwitchG.AddCurve(null, list4, Color.Red, SymbolType.None);
+                curve4 = SwitchG.AddCurve(null, list4, Color.DarkGreen, SymbolType.None);
             }
 
             SwitchG.AxisChange();
@@ -170,7 +165,7 @@ namespace Cycling
             }
             else
             {
-                curve3 = SwitchG.AddCurve(null, list3, Color.Blue, SymbolType.None);
+                curve3 = SwitchG.AddCurve(null, list3, Color.DarkBlue, SymbolType.None);
             }
 
             SwitchG.AxisChange();
@@ -185,7 +180,7 @@ namespace Cycling
             }
             else
             {
-                curve2 = SwitchG.AddCurve(null, list2, Color.Green, SymbolType.None);
+                curve2 = SwitchG.AddCurve(null, list2, Color.DarkRed, SymbolType.None);
             }
 
             SwitchG.AxisChange();

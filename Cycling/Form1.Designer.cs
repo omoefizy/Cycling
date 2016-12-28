@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.OsiMon = new System.Windows.Forms.Label();
@@ -74,14 +75,21 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.filesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calendarEventToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.graphsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.powerGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.heartRateGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.speedGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.altitudeGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupedGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label21 = new System.Windows.Forms.Label();
             this.graphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label21 = new System.Windows.Forms.Label();
+            this.omobo = new System.Windows.Forms.Label();
+            this.ebi = new System.Windows.Forms.Label();
+            this.eazi = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -95,8 +103,11 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(219, 108);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(731, 380);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.Selectobject);
             // 
             // OsiMon
             // 
@@ -331,6 +342,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Miles";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -522,14 +534,15 @@
             this.graphsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1030, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1086, 24);
             this.menuStrip1.TabIndex = 50;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // filesToolStripMenuItem
             // 
             this.filesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openFilesToolStripMenuItem});
+            this.openFilesToolStripMenuItem,
+            this.calendarEventToolStripMenuItem});
             this.filesToolStripMenuItem.Name = "filesToolStripMenuItem";
             this.filesToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
             this.filesToolStripMenuItem.Text = "Files";
@@ -537,9 +550,16 @@
             // openFilesToolStripMenuItem
             // 
             this.openFilesToolStripMenuItem.Name = "openFilesToolStripMenuItem";
-            this.openFilesToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.openFilesToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.openFilesToolStripMenuItem.Text = "Open Files";
             this.openFilesToolStripMenuItem.Click += new System.EventHandler(this.openFilesToolStripMenuItem_Click);
+            // 
+            // calendarEventToolStripMenuItem
+            // 
+            this.calendarEventToolStripMenuItem.Name = "calendarEventToolStripMenuItem";
+            this.calendarEventToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.calendarEventToolStripMenuItem.Text = "Calendar Event";
+            this.calendarEventToolStripMenuItem.Click += new System.EventHandler(this.calendarEventToolStripMenuItem_Click);
             // 
             // graphsToolStripMenuItem
             // 
@@ -589,6 +609,13 @@
             this.groupedGraphToolStripMenuItem.Text = "Grouped Graph";
             this.groupedGraphToolStripMenuItem.Click += new System.EventHandler(this.groupedGraphToolStripMenuItem_Click);
             // 
+            // graphToolStripMenuItem
+            // 
+            this.graphToolStripMenuItem.Name = "graphToolStripMenuItem";
+            this.graphToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.graphToolStripMenuItem.Text = "Switch Graph";
+            this.graphToolStripMenuItem.Click += new System.EventHandler(this.graphToolStripMenuItem_Click);
+            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -600,18 +627,71 @@
             this.label21.TabIndex = 51;
             this.label21.Text = "HR Data Summary ";
             // 
-            // graphToolStripMenuItem
+            // omobo
             // 
-            this.graphToolStripMenuItem.Name = "graphToolStripMenuItem";
-            this.graphToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.graphToolStripMenuItem.Text = "Graph ";
-            this.graphToolStripMenuItem.Click += new System.EventHandler(this.graphToolStripMenuItem_Click);
+            this.omobo.AutoSize = true;
+            this.omobo.Location = new System.Drawing.Point(956, 132);
+            this.omobo.Name = "omobo";
+            this.omobo.Size = new System.Drawing.Size(45, 13);
+            this.omobo.TabIndex = 52;
+            this.omobo.Text = "NPower";
+            // 
+            // ebi
+            // 
+            this.ebi.AutoSize = true;
+            this.ebi.Location = new System.Drawing.Point(956, 198);
+            this.ebi.Name = "ebi";
+            this.ebi.Size = new System.Drawing.Size(16, 13);
+            this.ebi.TabIndex = 53;
+            this.ebi.Text = "IF";
+            // 
+            // eazi
+            // 
+            this.eazi.AutoSize = true;
+            this.eazi.Location = new System.Drawing.Point(956, 268);
+            this.eazi.Name = "eazi";
+            this.eazi.Size = new System.Drawing.Size(28, 13);
+            this.eazi.TabIndex = 54;
+            this.eazi.Text = "TSS";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(956, 108);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(92, 13);
+            this.label22.TabIndex = 55;
+            this.label22.Text = "Normalised Power";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(956, 161);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(79, 13);
+            this.label23.TabIndex = 56;
+            this.label23.Text = "Intensity Factor";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(956, 234);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(108, 13);
+            this.label24.TabIndex = 57;
+            this.label24.Text = "Training Stress Score";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 507);
+            this.ClientSize = new System.Drawing.Size(1086, 533);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.eazi);
+            this.Controls.Add(this.ebi);
+            this.Controls.Add(this.omobo);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -656,6 +736,7 @@
             this.Controls.Add(this.OsiMon);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Cycling Computer Trainning Software";
@@ -723,6 +804,13 @@
         private System.Windows.Forms.ToolStripMenuItem groupedGraphToolStripMenuItem;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ToolStripMenuItem graphToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calendarEventToolStripMenuItem;
+        private System.Windows.Forms.Label omobo;
+        private System.Windows.Forms.Label ebi;
+        private System.Windows.Forms.Label eazi;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
     }
 }
 

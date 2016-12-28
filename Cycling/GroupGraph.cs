@@ -61,16 +61,7 @@ namespace Cycling
             myBar.Bar.Fill = new Fill(Color.Green, Color.White,
                                                         Color.Green);
 
-            // Generate a black line with "Curve 4" in the legend
-            LineItem myCurve = djeasy.AddCurve("Line",
-                  null, y4, Color.Black, SymbolType.Circle);
-            myCurve.Line.Fill = new Fill(Color.White,
-                                  Color.LightSkyBlue, -45F);
-
-            // Fix up the curve attributes a little
-            myCurve.Symbol.Size = 8.0F;
-            myCurve.Symbol.Fill = new Fill(Color.White);
-            myCurve.Line.Width = 2.0F;
+          
 
             // Draw the X tics between the labels instead of 
             // at the labels
